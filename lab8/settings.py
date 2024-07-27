@@ -76,17 +76,13 @@ WSGI_APPLICATION = 'lab8.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'pokedex',
-#        'HOST': 'localhost',
-#        'PORT': '5432',
-#        'USER': 'postgres',
-#        'PASSWORD': 'postgres'
-#    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'pokedex_sebastian',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        'USER': 'postgres',
+        'PASSWORD': 'pucetec'
+   }
 }
 
 
@@ -126,7 +122,17 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# Media files
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+#Media Root es el que busca el path que se va a usar para subir los archivos
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Configuraciones de autenticaciones
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = 'pokedex:login'

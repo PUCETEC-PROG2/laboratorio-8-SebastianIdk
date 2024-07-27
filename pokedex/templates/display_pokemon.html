@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 {% block title %}{{ pokemon }}{% endblock title %}
 {% block content %}
+<br>
 <p>Has elegido el pokemon: <strong>{{ pokemon | capfirst }}</strong></p>
 <h3>Características:</h3>
 <ul>
     <li>Tipo: <strong>{{ pokemon.type }}</strong></li>
     <li>Peso: <strong>{{ pokemon.weight }} kg</strong></li>
     <li>Altura: <strong>{{ pokemon.height }} cm</strong></li>
+    <br>
+    <img src="{{ pokemon.picture.url }}" alt="">
 </ul>
+<a href="{% url "pokedex:index" %}" class="btn btn-primary">Regresar</a>
 {% endblock content %}
