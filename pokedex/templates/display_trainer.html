@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ trainer }}{% endblock title %}
+{% block content %}
+<br>
+<p>Has elegido el entrenador: <strong>{{ trainer | capfirst }}</strong></p>
+<img src="{{ trainer.picture.url }}" alt="">
+<p>Posee los siguientes pokemons:</p>
+<ul>
+    {% for pokemon in trainer.pokemon_set.all  %}
+    <li>
+        <strong>{{ pokemon.name }}</strong> - <strong>Tipo: </strong>{{ pokemon.get_type_display }}
+    </li>
+    <img src="{{ pokemon.picture.url }}" alt="{{ pokemon.name }}" style="width: 100px; height: auto;">
+    {% empty %}
+    <li>No tiene Pokemons.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'pokedex:trainers' %}" class="btn btn-primary">Regresar</a>
+{% endblock content %}

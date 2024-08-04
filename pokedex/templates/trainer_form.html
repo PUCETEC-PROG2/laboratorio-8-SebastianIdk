@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Mi Pokedex{% endblock title %}
+{% block content %}
+    <br>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <strong>{{ form.as_p }}</strong>
+        <button type="submit" class="btn btn-primary">Guardar Entrenador</button>
+    </form>
+{% endblock content %}
